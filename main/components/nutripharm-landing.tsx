@@ -202,7 +202,7 @@ const FloatingNav = ({ language, setLanguage }) => {
   const navBackdropFilter = useTransform(
     scrollYProgress,
     [0, 0.05],
-    ["blur(0px)", "blur(10px)"]
+    ["blur(0px)", "blur(20px)"]
   );
 
   const navItems = [
@@ -231,7 +231,7 @@ const FloatingNav = ({ language, setLanguage }) => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.3,
+        duration: 0.4,
         ease: "easeOut",
       },
     },
@@ -248,9 +248,9 @@ const FloatingNav = ({ language, setLanguage }) => {
 
   return (
     <motion.header
-      className="fixed top-4 inset-x-0 max-w-3xl mx-auto z-50 rounded-full"
+      className="fixed top-4 inset-x-0  z-50 px-4"
       style={{
-        backgroundColor: navBackgroundColor,
+        // backgroundColor: navBackgroundColor,
         backdropFilter: navBackdropFilter,
       }}
       initial="hidden"
@@ -258,13 +258,13 @@ const FloatingNav = ({ language, setLanguage }) => {
       variants={navVariants}
     >
       <motion.div
-        className="flex items-center justify-between h-12 px-4 rounded-full border border-emerald-200"
+        className="max-w-7xl mx-auto flex items-center h-16 px-4 justify-between  rounded-full border border-emerald-200"
         layout
       >
         <Link href="#" className="text-lg font-bold text-emerald-600">
           Nutripharm
         </Link>
-        <nav className="hidden md:block">
+        <nav className="hidden md:block ">
           <ul className="flex space-x-2">
             <AnimatePresence>
               {navItems.map((item) => (
@@ -316,18 +316,18 @@ const FloatingNav = ({ language, setLanguage }) => {
       <AnimatePresence>
         {isMenuOpen && (
           <motion.nav
-            className="md:hidden mt-2"
+            className="md:hidden bg-white"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
           >
-            <ul className="flex flex-col space-y-2 p-4 bg-white rounded-lg shadow-lg">
+            <ul className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {navItems.map((item) => (
-                <motion.li key={item.name} variants={itemVariants}>
+                <li key={item.name}>
                   <Link
                     href={item.href}
-                    className={`block px-3 py-2 text-sm font-medium rounded-full transition-colors ${
+                    className={`block px-3 py-2 rounded-md text-base font-medium ${
                       activeItem === item.name
                         ? "bg-emerald-600 text-white"
                         : "text-emerald-700 hover:bg-emerald-100 hover:text-emerald-900"
@@ -339,7 +339,7 @@ const FloatingNav = ({ language, setLanguage }) => {
                   >
                     {item.name}
                   </Link>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </motion.nav>
@@ -478,7 +478,7 @@ const AppleCardsCarousel = ({ items }) => {
   );
 };
 
-export function NutripharmLandingComponent() {
+export default function NutripharmLanding() {
   const [language, setLanguage] = useState("en");
   const t = content[language];
 
@@ -500,233 +500,262 @@ export function NutripharmLandingComponent() {
     <div className="flex flex-col min-h-screen bg-white text-emerald-900">
       <FloatingNav language={language} setLanguage={setLanguage} />
       <main className="flex-1 pt-24">
-        <motion.section
-          id="home"
-          className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48 overflow-hidden"
-          initial="initial"
-          animate="animate"
-          variants={staggerChildren}
-        >
-          <AuroraBackground />
-          <motion.div
-            className="container relative z-10 px-4 md:px-6"
-            variants={fadeInUp}
+        <div>
+          <motion.section
+            id="home"
+            className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48 overflow-hidden"
+            initial="initial"
+            animate="animate"
+            variants={staggerChildren}
           >
-            <div className="flex flex-col items-center space-y-4 text-center">
-              <motion.div className="space-y-2" variants={fadeInUp}>
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-emerald-800">
-                  {t.hero.title}
-                </h1>
-                <p className="mx-auto max-w-[700px] text-emerald-700 md:text-xl">
-                  {t.hero.subtitle}
-                </p>
-              </motion.div>
-              <motion.div className="space-x-4" variants={fadeInUp}>
-                <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
-                  Our Catalog
-                </Button>
-                <Button
-                  variant="outline"
-                  className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
-                >
-                  Contact Sales
-                </Button>
-              </motion.div>
-            </div>
-          </motion.div>
-        </motion.section>
-        <motion.section
-          id="products"
-          className="w-full py-12 md:py-24 lg:py-32"
-          initial="initial"
-          animate="animate"
-          variants={staggerChildren}
-        >
-          <motion.div className="container px-4 md:px-6" variants={fadeInUp}>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-emerald-800">
-              {t.carousel.title}
-            </h2>
-            <AppleCardsCarousel items={t.carousel.items} />
-          </motion.div>
-        </motion.section>
-        <motion.section
-          id="services"
-          className="w-full py-12 md:py-24 lg:py-32 bg-emerald-50"
-          initial="initial"
-          animate="animate"
-          variants={staggerChildren}
-        >
-          <motion.div className="container px-4 md:px-6" variants={fadeInUp}>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-emerald-800">
-              {t.services.title}
-            </h2>
-            <motion.div
-              className="grid gap-10 sm:grid-cols-2 md:grid-cols-3"
-              variants={staggerChildren}
-            >
+            <AuroraBackground />
+            <div className="max-w-7xl mx-auto px-4 md:px-6">
               <motion.div
-                className="flex flex-col items-center space-y-2 border border-emerald-200 p-4 rounded-lg bg-white"
+                className="container mx-auto px-4 md:px-6 relative z-10"
                 variants={fadeInUp}
               >
-                <div className="p-2 bg-emerald-100 rounded-full">
-                  <Truck className="h-6 w-6 text-emerald-600" />
-                </div>
-                <h3 className="text-xl font-bold text-emerald-800">
-                  {t.services.distribution.title}
-                </h3>
-                <p className="text-sm text-emerald-600 text-center">
-                  {t.services.distribution.description}
-                </p>
-              </motion.div>
-              <motion.div
-                className="flex flex-col items-center space-y-2 border border-emerald-200 p-4 rounded-lg bg-white"
-                variants={fadeInUp}
-              >
-                <div className="p-2 bg-emerald-100 rounded-full">
-                  <ShieldCheck className="h-6 w-6 text-emerald-600" />
-                </div>
-                <h3 className="text-xl font-bold text-emerald-800">
-                  {t.services.quality.title}
-                </h3>
-                <p className="text-sm text-emerald-600 text-center">
-                  {t.services.quality.description}
-                </p>
-              </motion.div>
-              <motion.div
-                className="flex flex-col items-center space-y-2 border border-emerald-200 p-4 rounded-lg bg-white"
-                variants={fadeInUp}
-              >
-                <div className="p-2 bg-emerald-100 rounded-full">
-                  <Pill className="h-6 w-6 text-emerald-600" />
-                </div>
-                <h3 className="text-xl font-bold text-emerald-800">
-                  {t.services.range.title}
-                </h3>
-                <p className="text-sm text-emerald-600 text-center">
-                  {t.services.range.description}
-                </p>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        </motion.section>
-        <motion.section
-          id="about"
-          className="w-full py-12 md:py-24 lg:py-32"
-          initial="initial"
-          animate="animate"
-          variants={staggerChildren}
-        >
-          <motion.div className="container px-4 md:px-6" variants={fadeInUp}>
-            <div className="grid gap-10 lg:grid-cols-2 items-center">
-              <motion.div className="space-y-4" variants={fadeInUp}>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-emerald-800">
-                  {t.about.title}
-                </h2>
-                <p className="text-emerald-600">{t.about.description}</p>
-                <ul className="grid gap-2">
-                  {t.about.features.map((feature, index) => (
-                    <motion.li
-                      key={index}
-                      className="flex items-center gap-2"
-                      variants={fadeInUp}
+                <div className="flex flex-col items-center space-y-4 text-center">
+                  <motion.div className="space-y-2" variants={fadeInUp}>
+                    <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-emerald-800">
+                      {t.hero.title}
+                    </h1>
+                    <p className="mx-auto max-w-[700px] text-emerald-700 md:text-xl">
+                      {t.hero.subtitle}
+                    </p>
+                  </motion.div>
+                  <motion.div className="space-x-4" variants={fadeInUp}>
+                    <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">
+                      Our Catalog
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="border-emerald-600 text-emerald-600 hover:bg-emerald-50"
                     >
-                      <ShieldCheck className="h-5 w-5 text-emerald-600" />
-                      <span className="text-emerald-700">{feature}</span>
-                    </motion.li>
-                  ))}
-                </ul>
-              </motion.div>
-              <motion.div className="flex justify-center" variants={fadeInUp}>
-                <img
-                  alt="Pharmaceutical warehouse"
-                  className="aspect-video overflow-hidden rounded-xl object-cover object-center"
-                  height="300"
-                  src="/placeholder.svg?height=300&width=400"
-                  width="400"
-                />
+                      Contact Sales
+                    </Button>
+                  </motion.div>
+                </div>
               </motion.div>
             </div>
-          </motion.div>
-        </motion.section>
-        <motion.section
-          id="contact"
-          className="w-full py-12 md:py-24 lg:py-32 bg-emerald-50"
-          initial="initial"
-          animate="animate"
-          variants={staggerChildren}
-        >
-          <motion.div className="container px-4 md:px-6" variants={fadeInUp}>
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <motion.div className="space-y-2" variants={fadeInUp}>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-emerald-800">
-                  {t.contact.title}
+          </motion.section>
+          <motion.section
+            id="products"
+            className="w-full py-12 md:py-24 lg:py-32"
+            initial="initial"
+            animate="animate"
+            variants={staggerChildren}
+          >
+            <div className="max-w-7xl mx-auto px-4 md:px-6">
+              <motion.div
+                className="container mx-auto px-4 md:px-6"
+                variants={fadeInUp}
+              >
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-emerald-800">
+                  {t.carousel.title}
                 </h2>
-                <p className="max-w-[600px] text-emerald-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  {t.contact.description}
-                </p>
-              </motion.div>
-              <motion.div
-                className="w-full max-w-sm space-y-2"
-                variants={fadeInUp}
-              >
-                <form className="flex flex-col space-y-4">
-                  <Input
-                    className="max-w-lg flex-1 border-emerald-300 focus:ring-emerald-500 focus:border-emerald-500"
-                    placeholder={t.contact.form.name}
-                    type="text"
-                  />
-                  <Input
-                    className="max-w-lg flex-1 border-emerald-300 focus:ring-emerald-500 focus:border-emerald-500"
-                    placeholder={t.contact.form.email}
-                    type="email"
-                  />
-                  <Input
-                    className="max-w-lg flex-1 border-emerald-300 focus:ring-emerald-500 focus:border-emerald-500"
-                    placeholder={t.contact.form.phone}
-                    type="tel"
-                  />
-                  <Button
-                    type="submit"
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white"
-                  >
-                    {t.contact.form.submit}
-                  </Button>
-                </form>
-              </motion.div>
-              <motion.div
-                className="flex items-center justify-center space-x-2 pt-4"
-                variants={fadeInUp}
-              >
-                <Phone className="h-5 w-5 text-emerald-600" />
-                <span className="text-emerald-700 font-medium">
-                  Call us: +976 7711-2233
-                </span>
+                <AppleCardsCarousel items={t.carousel.items} />
               </motion.div>
             </div>
-          </motion.div>
-        </motion.section>
+          </motion.section>
+          <motion.section
+            id="services"
+            className="w-full py-12 md:py-24 lg:py-32 bg-emerald-50"
+            initial="initial"
+            animate="animate"
+            variants={staggerChildren}
+          >
+            <div className="max-w-7xl mx-auto px-4 md:px-6">
+              <motion.div
+                className="container mx-auto px-4 md:px-6"
+                variants={fadeInUp}
+              >
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center mb-12 text-emerald-800">
+                  {t.services.title}
+                </h2>
+                <motion.div
+                  className="grid gap-10 sm:grid-cols-2 md:grid-cols-3"
+                  variants={staggerChildren}
+                >
+                  <motion.div
+                    className="flex flex-col items-center space-y-2 border border-emerald-200 p-4 rounded-lg bg-white"
+                    variants={fadeInUp}
+                  >
+                    <div className="p-2 bg-emerald-100 rounded-full">
+                      <Truck className="h-6 w-6 text-emerald-600" />
+                    </div>
+                    <h3 className="text-xl font-bold text-emerald-800">
+                      {t.services.distribution.title}
+                    </h3>
+                    <p className="text-sm text-emerald-600 text-center">
+                      {t.services.distribution.description}
+                    </p>
+                  </motion.div>
+                  <motion.div
+                    className="flex flex-col items-center space-y-2 border border-emerald-200 p-4 rounded-lg bg-white"
+                    variants={fadeInUp}
+                  >
+                    <div className="p-2 bg-emerald-100 rounded-full">
+                      <ShieldCheck className="h-6 w-6 text-emerald-600" />
+                    </div>
+                    <h3 className="text-xl font-bold text-emerald-800">
+                      {t.services.quality.title}
+                    </h3>
+                    <p className="text-sm text-emerald-600 text-center">
+                      {t.services.quality.description}
+                    </p>
+                  </motion.div>
+                  <motion.div
+                    className="flex flex-col items-center space-y-2 border border-emerald-200 p-4 rounded-lg bg-white"
+                    variants={fadeInUp}
+                  >
+                    <div className="p-2 bg-emerald-100 rounded-full">
+                      <Pill className="h-6 w-6 text-emerald-600" />
+                    </div>
+                    <h3 className="text-xl font-bold text-emerald-800">
+                      {t.services.range.title}
+                    </h3>
+                    <p className="text-sm text-emerald-600 text-center">
+                      {t.services.range.description}
+                    </p>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </motion.section>
+          <motion.section
+            id="about"
+            className="w-full py-12 md:py-24 lg:py-32"
+            initial="initial"
+            animate="animate"
+            variants={staggerChildren}
+          >
+            <div className="max-w-7xl mx-auto px-4 md:px-6">
+              <motion.div
+                className="container mx-auto px-4 md:px-6"
+                variants={fadeInUp}
+              >
+                <div className="grid gap-10 lg:grid-cols-2 items-center">
+                  <motion.div className="space-y-4" variants={fadeInUp}>
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-emerald-800">
+                      {t.about.title}
+                    </h2>
+                    <p className="text-emerald-600">{t.about.description}</p>
+                    <ul className="grid gap-2">
+                      {t.about.features.map((feature, index) => (
+                        <motion.li
+                          key={index}
+                          className="flex items-center gap-2"
+                          variants={fadeInUp}
+                        >
+                          <ShieldCheck className="h-5 w-5 text-emerald-600" />
+                          <span className="text-emerald-700">{feature}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                  <motion.div
+                    className="flex justify-center"
+                    variants={fadeInUp}
+                  >
+                    <img
+                      alt="Pharmaceutical warehouse"
+                      className="aspect-video overflow-hidden rounded-xl object-cover object-center"
+                      height="300"
+                      src="/placeholder.svg?height=300&width=400"
+                      width="400"
+                    />
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.section>
+          <motion.section
+            id="contact"
+            className="w-full py-12 md:py-24 lg:py-32 bg-emerald-50"
+            initial="initial"
+            animate="animate"
+            variants={staggerChildren}
+          >
+            <div className="max-w-7xl mx-auto px-4 md:px-6">
+              <motion.div
+                className="container mx-auto px-4 md:px-6"
+                variants={fadeInUp}
+              >
+                <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                  <motion.div className="space-y-2" variants={fadeInUp}>
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-emerald-800">
+                      {t.contact.title}
+                    </h2>
+                    <p className="max-w-[600px] text-emerald-600 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                      {t.contact.description}
+                    </p>
+                  </motion.div>
+                  <motion.div
+                    className="w-full max-w-sm space-y-2"
+                    variants={fadeInUp}
+                  >
+                    <form className="flex flex-col space-y-4">
+                      <Input
+                        className="max-w-lg flex-1 border-emerald-300 focus:ring-emerald-500 focus:border-emerald-500"
+                        placeholder={t.contact.form.name}
+                        type="text"
+                      />
+                      <Input
+                        className="max-w-lg flex-1 border-emerald-300 focus:ring-emerald-500 focus:border-emerald-500"
+                        placeholder={t.contact.form.email}
+                        type="email"
+                      />
+                      <Input
+                        className="max-w-lg flex-1 border-emerald-300 focus:ring-emerald-500 focus:border-emerald-500"
+                        placeholder={t.contact.form.phone}
+                        type="tel"
+                      />
+                      <Button
+                        type="submit"
+                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white"
+                      >
+                        {t.contact.form.submit}
+                      </Button>
+                    </form>
+                  </motion.div>
+                  <motion.div
+                    className="flex items-center justify-center space-x-2 pt-4"
+                    variants={fadeInUp}
+                  >
+                    <Phone className="h-5 w-5 text-emerald-600" />
+                    <span className="text-emerald-700 font-medium">
+                      Call us: +976 7711-2233
+                    </span>
+                  </motion.div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.section>
+        </div>
       </main>
       <motion.footer
-        className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-emerald-200"
+        className="w-full shrink-0 border-t border-emerald-200"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
-        <p className="text-xs text-emerald-600">{t.footer.rights}</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link
-            className="text-xs hover:underline underline-offset-4 text-emerald-600"
-            href="#"
-          >
-            {t.footer.terms}
-          </Link>
-          <Link
-            className="text-xs hover:underline underline-offset-4 text-emerald-600"
-            href="#"
-          >
-            {t.footer.privacy}
-          </Link>
-        </nav>
+        <div className="max-w-7xl mx-auto flex flex-col gap-2 sm:flex-row py-6 items-center px-4 md:px-6">
+          <p className="text-xs text-emerald-600">{t.footer.rights}</p>
+          <nav className="sm:ml-auto flex gap-4 sm:gap-6">
+            <Link
+              className="text-xs hover:underline underline-offset-4 text-emerald-600"
+              href="#"
+            >
+              {t.footer.terms}
+            </Link>
+            <Link
+              className="text-xs hover:underline underline-offset-4 text-emerald-600"
+              href="#"
+            >
+              {t.footer.privacy}
+            </Link>
+          </nav>
+        </div>
       </motion.footer>
     </div>
   );

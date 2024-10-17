@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import logo from "../app/logo.png";
 import {
   motion,
   useAnimation,
@@ -89,6 +91,14 @@ const content = {
         name: "Your Name",
         email: "Your Email",
         phone: "Your Phone Number",
+        request: "Your Request",
+        submit: "Request a Call Back",
+      },
+      placeHolder: {
+        name: "Please provide us your Name",
+        email: "Please provide us your Email",
+        phone: "Please provide us your Phone Number",
+        // request: "Please provide us your Request",
         submit: "Request a Call Back",
       },
     },
@@ -175,6 +185,14 @@ const content = {
         name: "Таны нэр",
         email: "Таны и-мэйл",
         phone: "Таны утасны дугаар",
+        request: "Таны утасны санал хүсэлт",
+        submit: "Холбоо барих хүсэлт илгээх",
+      },
+      placeHolder: {
+        name: "Таны нэрээ бичнэ үү",
+        email: "Таны и-мэйлээ бичнэ үү",
+        phone: "Таны утасны дугаараа бичнэ үү",
+        // request: "Таны санал хүсэлтээ бичнэ үү",
         submit: "Холбоо барих хүсэлт илгээх",
       },
     },
@@ -258,11 +276,11 @@ const FloatingNav = ({ language, setLanguage }) => {
       variants={navVariants}
     >
       <motion.div
-        className="max-w-7xl mx-auto flex items-center h-16 px-4 justify-between  rounded-full border border-emerald-200"
+        className="max-w-7xl mx-auto flex items-center h-16 px-4 justify-between  rounded-full border  border-emerald-200"
         layout
       >
         <Link href="#" className="text-lg font-bold text-emerald-600">
-          Nutripharm
+          <Image src={logo} width={60} height={30} alt="Nutripharm Logo" />
         </Link>
         <nav className="hidden md:block ">
           <ul className="flex space-x-2">
@@ -660,9 +678,9 @@ export default function NutripharmLanding() {
                     <img
                       alt="Pharmaceutical warehouse"
                       className="aspect-video overflow-hidden rounded-xl object-cover object-center"
-                      height="300"
-                      src="/placeholder.svg?height=300&width=400"
-                      width="400"
+                      height="400"
+                      src="https://www.arrowedge.co.uk/wp-content/uploads/2018/09/arro_pharma.jpg"
+                      width="600"
                     />
                   </motion.div>
                 </div>
@@ -690,32 +708,72 @@ export default function NutripharmLanding() {
                       {t.contact.description}
                     </p>
                   </motion.div>
-                  <motion.div
-                    className="w-full max-w-sm space-y-2"
-                    variants={fadeInUp}
-                  >
-                    <form className="flex flex-col space-y-4">
-                      <Input
-                        className="max-w-lg flex-1 border-emerald-300 focus:ring-emerald-500 focus:border-emerald-500"
-                        placeholder={t.contact.form.name}
-                        type="text"
-                      />
-                      <Input
-                        className="max-w-lg flex-1 border-emerald-300 focus:ring-emerald-500 focus:border-emerald-500"
-                        placeholder={t.contact.form.email}
-                        type="email"
-                      />
-                      <Input
-                        className="max-w-lg flex-1 border-emerald-300 focus:ring-emerald-500 focus:border-emerald-500"
-                        placeholder={t.contact.form.phone}
-                        type="tel"
-                      />
-                      <Button
-                        type="submit"
-                        className="w-full bg-emerald-600 hover:bg-emerald-700 text-white"
-                      >
-                        {t.contact.form.submit}
-                      </Button>
+                  <motion.div className="w-full max-w-md" variants={fadeInUp}>
+                    <form className="p-8 bg-white rounded-2xl shadow-xl">
+                      <div className="space-y-4  text-left">
+                        <div>
+                          <label
+                            htmlFor="name"
+                            className="block text-sm font-medium text-emerald-700 mb-1"
+                          >
+                            {t.contact.form.name}
+                          </label>
+                          <Input
+                            id="name"
+                            className="w-full px-3 py-2 border border-emerald-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                            placeholder={t.contact.placeHolder.name}
+                            type="text"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="email"
+                            className="block text-sm font-medium text-emerald-700 mb-1"
+                          >
+                            {t.contact.form.email}
+                          </label>
+                          <Input
+                            id="email"
+                            className="w-full px-3 py-2 border border-emerald-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                            placeholder={t.contact.placeHolder.email}
+                            type="email"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="phone"
+                            className="block text-sm font-medium text-emerald-700 mb-1"
+                          >
+                            {t.contact.form.phone}
+                          </label>
+                          <Input
+                            id="phone"
+                            className="w-full px-3 py-2 border border-emerald-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                            placeholder={t.contact.placeHolder.phone}
+                            type="tel"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="request"
+                            className="block text-sm font-medium text-emerald-700 mb-1"
+                          >
+                            {t.contact.form.request}
+                          </label>
+                          <Input
+                            id="request"
+                            className="w-full px-3 py-2 border border-emerald-300 rounded-md h-32 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                            placeholder={t.contact.placeHolder.request}
+                            type="tel"
+                          />
+                        </div>
+                        <Button
+                          type="submit"
+                          className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-md transition duration-300 ease-in-out transform hover:scale-105"
+                        >
+                          {t.contact.form.submit}
+                        </Button>
+                      </div>
                     </form>
                   </motion.div>
                   <motion.div

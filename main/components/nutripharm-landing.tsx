@@ -6,7 +6,6 @@ import Image from "next/image";
 import logo from "../app/logo.png";
 import {
   motion,
-  useAnimation,
   useMotionValue,
   useScroll,
   useTransform,
@@ -210,12 +209,6 @@ const FloatingNav = ({ language, setLanguage }) => {
   const t = content[language].nav;
   const [activeItem, setActiveItem] = useState(t.home);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const navBackgroundColor = useTransform(
-    scrollYProgress,
-    [0, 0.05],
-    ["rgba(255, 255, 255, 0.5)", "rgba(255, 255, 255, 0.9)"]
-  );
 
   const navBackdropFilter = useTransform(
     scrollYProgress,
@@ -427,7 +420,6 @@ const AppleCardsCarousel = ({ items }) => {
 
   const onDragEnd = () => {
     setIsSwiping(false);
-    const containerWidth = containerRef.current.offsetWidth;
     const numItems = items.length;
     const itemWidth = 288; // 72 * 4 = 288
     const maxDrag = -((numItems - 1) * itemWidth);

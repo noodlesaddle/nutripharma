@@ -311,7 +311,7 @@ const FloatingNav = ({ language, setLanguage }) => {
             aria-label="Toggle language"
             className="text-emerald-600 hover:text-emerald-700 hover:bg-emerald-100"
           >
-            <Globe className="h-6 w-6" />
+            <Globe className="h-5 w-5" />
           </Button>
           <Button
             variant="ghost"

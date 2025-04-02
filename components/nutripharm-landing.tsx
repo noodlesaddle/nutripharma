@@ -787,7 +787,7 @@ export default function NutripharmLanding() {
                   >
                     <Phone className="h-5 w-5 text-emerald-600" />
                     <span className="text-emerald-700 font-medium">
-                      Email: info@nomt-nutripharma.com
+                      Email:info@nomt-nutripharma.com
                     </span>
                   </motion.div>
                 </div>

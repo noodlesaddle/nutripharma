@@ -75,7 +75,7 @@ const content = {
     about: {
       title: "About Nutripharma",
       description:
-        "With over 10 years of experience, Nutripharma has been a trusted partner for pharmacies nationwide. We specialize in importing high-quality medicines and nutritional supplements from reputable international manufacturers and ensuring their timely distribution to our network of pharmacy partners.",
+        "With over 10 years of experience, Nomt-Nutripharma has been a trusted partner for pharmacies nationwide. We specialize in importing high-quality medicines and nutritional supplements from reputable international manufacturers and ensuring their timely distribution to our network of pharmacy partners.",
       features: [
         "Licensed and regulated importer",
         "Nationwide distribution network",
@@ -168,7 +168,7 @@ const content = {
     about: {
       title: "Нутрифармын тухай",
       description:
-        "20 гаруй жилийн туршлагатай Нутрифарм нь улс даяар эмийн сангуудын найдвартай түнш болж ирсэн. Бид олон улсын нэр хүндтэй үйлдвэрлэгчдээс өндөр чанартай эм болон хоол тэжээлийн нэмэлтүүдийг импортлох, эмийн сангийн түнш байгууллагуудын сүлжээнд цаг тухайд нь түгээх чиглэлээр мэргэшсэн.",
+        "10 гаруй жилийн туршлагатай Номт-Нутрифарма ХХК нь улс даяар эмийн сангуудын найдвартай түнш болж ирсэн. Бид олон улсын нэр хүндтэй үйлдвэрлэгчдээс өндөр чанартай эм болон хоол тэжээлийн нэмэлтүүдийг импортлох, эмийн сангийн түнш байгууллагуудын сүлжээнд цаг тухайд нь түгээх чиглэлээр мэргэшсэн.",
       features: [
         "Зөвшөөрөлтэй, зохицуулалттай импортлогч",
         "Улс даяар түгээх сүлжээ",

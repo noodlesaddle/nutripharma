@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../app/logo.png";
+import logo from "../app/assets/logo.png";
 import {
   motion,
   useMotionValue,
@@ -73,9 +73,9 @@ const content = {
       },
     },
     about: {
-      title: "About Nutripharm",
+      title: "About Nutripharma",
       description:
-        "With over 20 years of experience, Nutripharm has been a trusted partner for pharmacies nationwide. We specialize in importing high-quality medicines and nutritional supplements from reputable international manufacturers and ensuring their timely distribution to our network of pharmacy partners.",
+        "With over 10 years of experience, Nutripharma has been a trusted partner for pharmacies nationwide. We specialize in importing high-quality medicines and nutritional supplements from reputable international manufacturers and ensuring their timely distribution to our network of pharmacy partners.",
       features: [
         "Licensed and regulated importer",
         "Nationwide distribution network",
@@ -102,8 +102,7 @@ const content = {
       },
     },
     footer: {
-      rights:
-        "© 2024 Nutripharm Pharmaceutical Distributors. All rights reserved.",
+      rights: `© ${new Date().getFullYear()} Nutripharma Pharmaceutical Distributors. All rights reserved.`,
       terms: "Terms of Service",
       privacy: "Privacy Policy",
     },
@@ -196,8 +195,7 @@ const content = {
       },
     },
     footer: {
-      rights:
-        "© 2024 Нутрифарм Эм Ханган Нийлүүлэгч. Бүх эрх хуулиар хамгаалагдсан.",
+      rights: `© ${new Date().getFullYear()} Нутрифарма Эм Ханган Нийлүүлэх Байгууллага. Бүх эрх хуулиар хамгаалагдсан.`,
       terms: "Үйлчилгээний нөхцөл",
       privacy: "Нууцлалын бодлого",
     },
@@ -273,7 +271,13 @@ const FloatingNav = ({ language, setLanguage }) => {
         layout
       >
         <Link href="#" className="text-lg font-bold text-emerald-600">
-          <Image src={logo} width={60} height={30} alt="Nutripharm Logo" />
+          <Image
+            src={logo}
+            width={80}
+            height={40}
+            className="px-1"
+            alt="Nutripharma Logo"
+          />
         </Link>
         <nav className="hidden md:block ">
           <ul className="flex space-x-2">
@@ -307,7 +311,7 @@ const FloatingNav = ({ language, setLanguage }) => {
             aria-label="Toggle language"
             className="text-emerald-600 hover:text-emerald-700 hover:bg-emerald-100"
           >
-            <Globe className="h-5 w-5" />
+            <Globe className="h-6 w-6" />
           </Button>
           <Button
             variant="ghost"
@@ -774,7 +778,16 @@ export default function NutripharmLanding() {
                   >
                     <Phone className="h-5 w-5 text-emerald-600" />
                     <span className="text-emerald-700 font-medium">
-                      Call us: +976 7711-2233
+                      Call us: +976 99841308
+                    </span>
+                  </motion.div>
+                  <motion.div
+                    className="flex items-center justify-center space-x-2 "
+                    variants={fadeInUp}
+                  >
+                    <Phone className="h-5 w-5 text-emerald-600" />
+                    <span className="text-emerald-700 font-medium">
+                      Email: info@nomt-nutripharma.com
                     </span>
                   </motion.div>
                 </div>

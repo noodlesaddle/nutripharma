@@ -13,7 +13,16 @@ import {
 } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Pill, Truck, ShieldCheck, Phone, Globe, Menu, X } from "lucide-react";
+import {
+  Pill,
+  Truck,
+  ShieldCheck,
+  Phone,
+  Globe,
+  Menu,
+  X,
+  Mail,
+} from "lucide-react";
 
 const content = {
   en: {
@@ -785,7 +794,7 @@ export default function NutripharmLanding() {
                     className="flex items-center justify-center space-x-2 "
                     variants={fadeInUp}
                   >
-                    <Phone className="h-5 w-5 text-emerald-600" />
+                    <Mail className="h-5 w-5 text-emerald-600" />
                     <span className="text-emerald-700 font-medium">
                       Email:info@nomt-nutripharma.com
                     </span>

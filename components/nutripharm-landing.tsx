@@ -22,7 +22,17 @@ import {
   Menu,
   X,
   Mail,
+  CheckCircle2,
+  ArrowRight,
+  MonitorPlay,
 } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
 
 const content = {
   en: {
@@ -31,6 +41,7 @@ const content = {
       products: "Products",
       services: "Services",
       about: "About",
+      radiantViewer: "Radiant Viewer", // Added for navigation
       contact: "Contact",
     },
     hero: {
@@ -91,6 +102,25 @@ const content = {
         "Extensive range of medications and supplements",
       ],
     },
+    radiantViewer: {
+      // New content for Radiant Viewer section
+      tag: "Official Distributor",
+      title: "Empowering Diagnostics with",
+      highlight: "Radiant Viewer",
+      description:
+        "We are proud to announce our official partnership as the authorized distributor of Radiant Viewer, a leading DICOM viewer trusted by medical professionals worldwide. Get access to advanced medical imaging solutions directly from us.",
+      features: [
+        "Cutting-edge medical imaging software for enhanced diagnostics.",
+        "Dedicated local support and comprehensive training from our experts.",
+        "Seamless integration into existing medical workflows.",
+        "Cost-effective licensing and upgrade options.",
+      ],
+      ctaLearn: "Learn More About Radiant Viewer",
+      ctaDemo: "Request a Demo",
+      cardTitle: "Intuitive & Powerful DICOM Viewer",
+      cardDescription:
+        "Radiant Viewer provides a comprehensive set of tools for medical image visualization and analysis, supporting a wide range of modalities.",
+    },
     contact: {
       title: "Get in Touch",
       description:
@@ -122,6 +152,7 @@ const content = {
       products: "Бүтээгдэхүүн",
       services: "Үйлчилгээ",
       about: "Бидний тухай",
+      radiantViewer: "Радиант Вьювер", // Added for navigation
       contact: "Холбоо барих",
     },
     hero: {
@@ -183,6 +214,25 @@ const content = {
         "Улс даяар түгээх сүлжээ",
         "Эм болон хоол тэжээлийн нэмэлтүүдийн өргөн сонголт",
       ],
+    },
+    radiantViewer: {
+      // New content for Radiant Viewer section (Mongolian)
+      tag: "Албан ёсны дистрибьютор",
+      title: "Радиант Вьюверээр оношилгоог сайжруулах",
+      highlight: "Радиант Вьювер",
+      description:
+        "Бид дэлхийн өнцөг булан бүрт эмнэлгийн мэргэжилтнүүдийн итгэлийг хүлээсэн тэргүүлэгч DICOM үзүүлэгч Radiant Viewer-ийн албан ёсны дистрибьютер болсноо бахардан зарлаж байна. Биднээс шууд дэвшилтэт эмнэлгийн дүрслэл шийдлүүдийг аваарай.",
+      features: [
+        "Оношилгоог сайжруулах орчин үеийн  дүрслэл програм хангамж.",
+        "Манай мэргэжилтнүүдээс тусгай дэмжлэг, иж бүрэн сургалт.",
+        "Одоо байгаа эмнэлгийн ажлын урсгалд саадгүй нэгдэнэ.",
+        "Зардал хэмнэлттэй лиценз болон шинэчлэх сонголтууд.",
+      ],
+      ctaLearn: "Радиант Вьюверийн тухай дэлгэрэнгүй",
+      ctaDemo: "Демо хүсэлт илгээх",
+      cardTitle: "Ухаалаг бөгөөд хүчирхэг DICOM үзүүлэгч",
+      cardDescription:
+        "Радиант Вьювер нь эмнэлгийн дүрслэлийг харуулах, дүн шинжилгээ хийхэд зориулсан иж бүрэн хэрэгслүүдийг санал болгодог бөгөөд олон төрлийн модалийг дэмждэг.",
     },
     contact: {
       title: "Холбоо барих",
@@ -689,6 +739,111 @@ export default function NutripharmLanding() {
                     />
                   </motion.div>
                 </div>
+              </motion.div>
+            </div>
+          </motion.section>
+          <motion.section
+            id="radiant-viewer"
+            className="w-full py-12 md:py-24 lg:py-32"
+            initial="initial"
+            animate="animate"
+            variants={staggerChildren}
+          >
+            <div className="max-w-7xl mx-auto px-4 md:px-8">
+              <motion.div
+                className="grid gap-12 lg:grid-cols-2 items-center" // Increased gap for better spacing
+                variants={fadeInUp}
+              >
+                {/* Left Column: Text Content */}
+                <motion.div className="space-y-6" variants={fadeInUp}>
+                  <motion.p
+                    className="inline-block rounded-lg bg-emerald-600 px-3 py-2 text-sm font-semibold text-white dark:bg-emerald-500" // Changed to emerald
+                    variants={fadeInUp}
+                  >
+                    {t.radiantViewer.tag}
+                  </motion.p>
+                  <motion.h2
+                    className="text-4xl font-extrabold tracking-tight text-emerald-800 sm:text-3xl lg:text-4xl dark:text-emerald-200" // Changed to emerald
+                    variants={fadeInUp}
+                  >
+                    {t.radiantViewer.title}{" "}
+                    <span className="text-emerald-600">
+                      {t.radiantViewer.highlight}
+                    </span>
+                  </motion.h2>
+                  <motion.p
+                    className="text-md text-emerald-600 md:text-md "
+                    variants={fadeInUp}
+                  >
+                    {t.radiantViewer.description}
+                  </motion.p>
+
+                  <ul className="grid gap-4 mt-6">
+                    {t.radiantViewer.features.map((feature, index) => (
+                      <motion.li
+                        key={index}
+                        className="flex items-start gap-3 text-emerald-800 px-2" // Changed to emerald
+                        variants={fadeInUp}
+                      >
+                        <ShieldCheck className="h-6 w-6 flex-shrink-0 text-emerald-600 dark:text-emerald-400" />{" "}
+                        {/* Changed to emerald */}
+                        <span>{feature}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+
+                  <motion.div
+                    className="flex flex-col sm:flex-row gap-4 mt-8"
+                    variants={fadeInUp}
+                  >
+                    <Button
+                      asChild
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white dark:bg-emerald-500 dark:hover:bg-emerald-600" // Changed to emerald
+                      size="lg"
+                    >
+                      <a
+                        href="https://www.radiantviewer.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {t.radiantViewer.ctaLearn}
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </a>
+                    </Button>
+                  </motion.div>
+                </motion.div>
+
+                {/* Right Column: Image or Video */}
+                <motion.div
+                  className="flex justify-center lg:justify-end"
+                  variants={fadeInUp}
+                >
+                  <Card className="w-full max-w-lg shadow-xl dark:bg-gray-800 border-emerald-200 dark:border-gray-700">
+                    {" "}
+                    {/* Added emerald border for consistency */}
+                    <CardContent className="p-0">
+                      <img
+                        alt="Radiant Viewer Software Interface"
+                        className=" p-2 rounded-xl object-cover w-full h-auto aspect-[16/9] md:aspect-[4/3] lg:aspect-[16/9]"
+                        height="400"
+                        src="https://www.radiantviewer.com/img/mainbg.jpg"
+                        width="600"
+                      />
+                    </CardContent>
+                    <CardHeader className="pt-4">
+                      <CardTitle className="text-xl font-bold text-emerald-800 dark:text-emerald-200">
+                        {" "}
+                        {/* Changed to emerald */}
+                        {t.radiantViewer.cardTitle}
+                      </CardTitle>
+                      <CardDescription className="text-emerald-700 dark:text-emerald-300">
+                        {" "}
+                        {/* Changed to emerald */}
+                        {t.radiantViewer.cardDescription}
+                      </CardDescription>
+                    </CardHeader>
+                  </Card>
+                </motion.div>
               </motion.div>
             </div>
           </motion.section>

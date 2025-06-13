@@ -22,9 +22,7 @@ import {
   Menu,
   X,
   Mail,
-  CheckCircle2,
   ArrowRight,
-  MonitorPlay,
 } from "lucide-react";
 import {
   Card,

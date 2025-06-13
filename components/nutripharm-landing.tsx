@@ -786,7 +786,7 @@ export default function NutripharmLanding() {
             animate="animate"
             variants={staggerChildren}
           >
-            <div className="max-w-7xl mx-auto px-4 md:px-6">
+            <div className="max-w-7xl mx-auto px-8 md:px-6">
               <motion.div
                 className="grid gap-12 lg:grid-cols-2 items-center"
                 variants={fadeInUp}
@@ -887,7 +887,7 @@ export default function NutripharmLanding() {
             animate="animate"
             variants={staggerChildren}
           >
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="max-w-7xl mx-auto px-8 md:px-8">
               <motion.div
                 className="grid gap-12 lg:grid-cols-2 items-center" // Increased gap for better spacing
                 variants={fadeInUp}

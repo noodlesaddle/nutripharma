@@ -1075,22 +1075,14 @@ export default function NutripharmLanding() {
                       </div>
                     </form>
                   </motion.div>
+
                   <motion.div
-                    className="flex items-center justify-center space-x-2 pt-4"
-                    variants={fadeInUp}
-                  >
-                    <Phone className="h-5 w-5 text-emerald-600" />
-                    <span className="text-emerald-700 font-medium">
-                      Call us: +976 99841308
-                    </span>
-                  </motion.div>
-                  <motion.div
-                    className="flex items-center justify-center space-x-2 "
+                    className="flex items-center justify-center pt-6 space-x-2 "
                     variants={fadeInUp}
                   >
                     <Mail className="h-5 w-5 text-emerald-600" />
                     <span className="text-emerald-700 font-medium">
-                      Email:info@nomt-nutripharma.com
+                      Email: contact@nomt-nutripharma.com
                     </span>
                   </motion.div>
                 </div>

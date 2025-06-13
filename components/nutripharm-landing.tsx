@@ -23,6 +23,7 @@ import {
   X,
   Mail,
   ArrowRight,
+  Leaf,
 } from "lucide-react";
 import {
   Card,
@@ -118,6 +119,25 @@ const content = {
       cardTitle: "Intuitive & Powerful DICOM Viewer",
       cardDescription:
         "Radiant Viewer provides a comprehensive set of tools for medical image visualization and analysis, supporting a wide range of modalities.",
+    },
+    nutricost: {
+      // New content for Nutricost section
+      tag: "Official Distributor",
+      title: "Enhancing Wellness with",
+      highlight: "Nutricost Supplements",
+      description:
+        "As an official distributor of Nutricost, we bring a wide selection of premium, high-quality nutritional supplements directly to your customers. Nutricost is renowned for its commitment to purity, potency, and transparent labeling, helping individuals achieve their health goals.",
+      features: [
+        "Extensive range of vitamins, minerals, and specialty supplements.",
+        "Third-party tested products for guaranteed purity and quality.",
+        "Transparent labeling and allergen information.",
+        "Trusted brand by health enthusiasts worldwide.",
+      ],
+      ctaBrowse: "Browse Nutricost Products",
+      ctaInquire: "Inquire About Wholesale",
+      cardTitle: "Pure, Potent, & Transparent Supplements",
+      cardDescription:
+        "Nutricost offers a comprehensive line of supplements, meticulously tested for quality and designed to support various health and wellness needs.",
     },
     contact: {
       title: "Get in Touch",
@@ -231,6 +251,25 @@ const content = {
       cardTitle: "Ухаалаг бөгөөд хүчирхэг DICOM үзүүлэгч",
       cardDescription:
         "Радиант Вьювер нь эмнэлгийн дүрслэлийг харуулах, дүн шинжилгээ хийхэд зориулсан иж бүрэн хэрэгслүүдийг санал болгодог бөгөөд олон төрлийн модалийг дэмждэг.",
+    },
+    nutricost: {
+      // New content for Nutricost section (Mongolian)
+      tag: "Албан ёсны дистрибьютор",
+      title: "Эрүүл мэндийг дэмжих",
+      highlight: "Нутрикост нэмэлт бүтээгдэхүүнүүд",
+      description:
+        "Нутрикостын албан ёсны дистрибьютерийн хувиар бид өндөр чанартай хоол тэжээлийн нэмэлт бүтээгдэхүүний өргөн сонголтыг үйлчлүүлэгчдэдээ шууд хүргэж байна. Нутрикост нь цэвэр байдал, үр дүн, орц найрлага нь ил тодоороо алдартай байгууллага билээ.",
+      features: [
+        "Витамин, эрдэс бодис, тусгай нэмэлтүүдийн өргөн сонголт.",
+        "Цэвэр байдал, чанарыг баталгаажуулсан, гуравдагч этгээдээр туршсан бүтээгдэхүүн.",
+        "Орц найрлага ил тод, харшлын мэдээлэл.",
+        "Дэлхий даяар эрүүл мэндийн сонирхогчдын итгэлийг хүлээсэн брэнд.",
+      ],
+      ctaBrowse: "Нутрикост бүтээгдэхүүн үзэх",
+      ctaInquire: "Бөөний худалдааны талаар асуух",
+      cardTitle: "Цэвэр, хүчирхэг, ил тод нэмэлтүүд",
+      cardDescription:
+        "Нутрикост нь чанарыг нь нарийн шалгасан, эрүүл мэнд, сайн сайхан байдлын төрөл бүрийн хэрэгцээг дэмжих зорилготой иж бүрэн нэмэлт бүтээгдэхүүнүүдийг санал болгодог.",
     },
     contact: {
       title: "Холбоо барих",
@@ -715,7 +754,7 @@ export default function NutripharmLanding() {
                       {t.about.features.map((feature, index) => (
                         <motion.li
                           key={index}
-                          className="flex items-center gap-2"
+                          className="flex items-start gap-3 text-emerald-800 px-2" // Changed to emerald
                           variants={fadeInUp}
                         >
                           <ShieldCheck className="h-5 w-5 text-emerald-600" />
@@ -737,6 +776,107 @@ export default function NutripharmLanding() {
                     />
                   </motion.div>
                 </div>
+              </motion.div>
+            </div>
+          </motion.section>
+          <motion.section
+            id="nutricost"
+            className="w-full py-12 md:py-24 lg:py-32" // No background color for alternating sections
+            initial="initial"
+            animate="animate"
+            variants={staggerChildren}
+          >
+            <div className="max-w-7xl mx-auto px-4 md:px-6">
+              <motion.div
+                className="grid gap-12 lg:grid-cols-2 items-center"
+                variants={fadeInUp}
+              >
+                {/* Left Column: Image or Video */}
+                {/* Reversing columns for visual variety */}
+                <motion.div
+                  className="flex justify-center lg:justify-start"
+                  variants={fadeInUp}
+                >
+                  <Card className="w-full max-w-lg shadow-xl dark:bg-gray-800 border-sky-200 dark:border-gray-700">
+                    <CardContent className="p-0">
+                      {/* Using a product image from Nutricost site */}
+                      <img
+                        alt="Nutricost protein powder and supplements"
+                        className="p-12 rounded-xl object-cover w-full h-auto aspect-[16/9] md:aspect-[4/3] lg:aspect-[16/9]"
+                        height="400"
+                        src="https://www.nasc.cc/wp-content/uploads/2024/09/Nutricost-Logo.jpg"
+                        width="600"
+                      />
+                    </CardContent>
+                    <CardHeader className="pt-4">
+                      <CardTitle className="text-xl font-bold text-sky-800 dark:text-emerald-200">
+                        {t.nutricost.cardTitle}
+                      </CardTitle>
+                      <CardDescription className="text-sky-700 dark:text-emerald-300">
+                        {t.nutricost.cardDescription}
+                      </CardDescription>
+                    </CardHeader>
+                  </Card>
+                </motion.div>
+
+                {/* Right Column: Text Content */}
+                <motion.div className="space-y-6" variants={fadeInUp}>
+                  <motion.p
+                    className="inline-block rounded-lg bg-sky-700 px-3 py-2 text-sm font-semibold text-white dark:bg-emerald-500"
+                    variants={fadeInUp}
+                  >
+                    {t.nutricost.tag}
+                  </motion.p>
+                  <motion.h2
+                    className="text-4xl font-extrabold tracking-tight text-sky-800 sm:text-3xl lg:text-4xl dark:text-emerald-200"
+                    variants={fadeInUp}
+                  >
+                    {t.nutricost.title}{" "}
+                    <span className="text-sky-600 dark:text-emerald-400">
+                      {t.nutricost.highlight}
+                    </span>
+                  </motion.h2>
+                  <motion.p
+                    className="text-md text-sky-700  dark:text-emerald-300"
+                    variants={fadeInUp}
+                  >
+                    {t.nutricost.description}
+                  </motion.p>
+
+                  <ul className="grid gap-4 mt-6">
+                    {t.nutricost.features.map((feature, index) => (
+                      <motion.li
+                        key={index}
+                        className="flex items-start text-md gap-3 text-sky-800 "
+                        variants={fadeInUp}
+                      >
+                        {/* Using Leaf icon for wellness/natural feel, or Zap for energy */}
+                        <Leaf className="h-6 w-6 flex-shrink-0 text-sky-600 dark:text-emerald-400" />
+                        <span>{feature}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+
+                  <motion.div
+                    className="flex flex-col sm:flex-row gap-4 mt-8"
+                    variants={fadeInUp}
+                  >
+                    <Button
+                      asChild
+                      className="bg-sky-600 hover:bg-sky-700 text-white dark:bg-emerald-500 dark:hover:bg-emerald-600"
+                      size="lg"
+                    >
+                      <a
+                        href="https://nutricost.com/collections/all-items"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {t.nutricost.ctaBrowse}
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                      </a>
+                    </Button>
+                  </motion.div>
+                </motion.div>
               </motion.div>
             </div>
           </motion.section>
@@ -845,6 +985,7 @@ export default function NutripharmLanding() {
               </motion.div>
             </div>
           </motion.section>
+
           <motion.section
             id="contact"
             className="w-full py-12 md:py-24 lg:py-32 bg-emerald-50"

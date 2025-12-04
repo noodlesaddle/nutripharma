@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
+// Check if API key is configured
+if (!process.env.RESEND_API_KEY) {
+  console.error('❌ RESEND_API_KEY is not configured in environment variables');
+}
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
@@ -132,9 +137,18 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('❌ Error sending email:', error);
+
+    // Provide more specific error message
+    let errorMessage = 'Failed to send email. Please try again later.';
+
+    if (!process.env.RESEND_API_KEY) {
+      errorMessage = 'Email service not configured. Please contact administrator.';
+      console.error('💡 Hint: Add RESEND_API_KEY to .env.local file');
+    }
+
     return NextResponse.json(
-      { error: 'Failed to send email. Please try again later.' },
+      { error: errorMessage },
       { status: 500 }
     );
   }

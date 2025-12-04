@@ -10,11 +10,7 @@ interface OptimizedHeroSectionProps {
     subtitle: string;
 }
 
-const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.4 }, // Faster animation
-};
+
 
 export const OptimizedHeroSection: React.FC<OptimizedHeroSectionProps> = ({ title, subtitle }) => {
     return (

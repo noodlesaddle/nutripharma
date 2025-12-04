@@ -4,7 +4,7 @@
 
 ### Install
 ```bash
-npm install resend
+npm install resend  # Already installed ✅
 ```
 
 ### Configure
@@ -17,6 +17,11 @@ RESEND_API_KEY=re_your_key_here
 ```bash
 npm run dev
 ```
+
+### Troubleshooting
+If you get "Failed to send email" error:
+- Check `TROUBLESHOOT_EMAIL.md`
+- Check `EMAIL_CHECKLIST.md`
 
 ### Deploy
 Add `RESEND_API_KEY` to your hosting platform's environment variables.

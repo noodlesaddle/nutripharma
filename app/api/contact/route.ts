@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email using Resend
-    const data = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: 'Nutripharma Contact Form <onboarding@resend.dev>', // You'll update this with your domain
       to: ['info@nomt-nutripharma.com'],
       replyTo: email,
@@ -119,8 +119,16 @@ export async function POST(request: NextRequest) {
       `,
     });
 
+    if (error) {
+      console.error('Resend error:', error);
+      return NextResponse.json(
+        { error: 'Failed to send email. Please try again later.' },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json(
-      { message: 'Email sent successfully', id: data.id },
+      { message: 'Email sent successfully', id: data?.id },
       { status: 200 }
     );
   } catch (error) {

@@ -67,20 +67,31 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         setSubmitStatus('idle');
 
         try {
-            // Simulate API call - replace with actual endpoint
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
 
-            // TODO: Replace with actual API call
-            console.log('Form submitted:', formData);
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Failed to send message');
+            }
 
             setSubmitStatus('success');
             setFormData({ name: '', email: '', phone: '', request: '' });
 
-            // Reset success message after 3 seconds
-            setTimeout(() => setSubmitStatus('idle'), 3000);
+            // Reset success message after 5 seconds
+            setTimeout(() => setSubmitStatus('idle'), 5000);
         } catch (error) {
             console.error('Form submission error:', error);
             setSubmitStatus('error');
+
+            // Reset error message after 5 seconds
+            setTimeout(() => setSubmitStatus('idle'), 5000);
         } finally {
             setIsSubmitting(false);
         }

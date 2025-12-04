@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import { FloatingNav } from "./landing/FloatingNav";
-import { HeroSection } from "./landing/HeroSection";
+import { EnhancedHeroSection } from "./landing/EnhancedHeroSection";
+import { EnhancedServicesSection } from "./landing/"
 import { ProductsSection } from "./landing/ProductsSection";
-import { ServicesSection } from "./landing/ServicesSection";
+
 import { AboutSection } from "./landing/AboutSection";
 import { ProductDistributorSection } from "./landing/ProductDistributorSection";
 import { ContactSection } from "./landing/ContactSection";
@@ -21,7 +22,7 @@ export default function NutripharmLanding() {
             <FloatingNav language={language} setLanguage={setLanguage} />
 
             <main className="flex-1 pt-24">
-                <HeroSection
+                <EnhancedHeroSection
                     title={t.hero.title}
                     subtitle={t.hero.subtitle}
                 />
@@ -31,7 +32,7 @@ export default function NutripharmLanding() {
                     items={t.carousel.items}
                 />
 
-                <ServicesSection
+                <EnhancedServicesSection
                     title={t.services.title}
                     distribution={t.services.distribution}
                     quality={t.services.quality}

@@ -10,6 +10,16 @@ export { ProductDistributorSection } from './ProductDistributorSection';
 export { ContactSection } from './ContactSection';
 export { Footer } from './Footer';
 
+// Export enhanced components (Aceternity UI-inspired)
+export { EnhancedCard } from './EnhancedCard';
+export { MagneticButton } from './MagneticButton';
+export { TextReveal } from './TextReveal';
+export { MovingBorder } from './MovingBorder';
+export { BeamEffect } from './BeamEffect';
+export { GridBackground } from './GridBackground';
+export { EnhancedHeroSection } from './EnhancedHeroSection';
+export { EnhancedServicesSection } from './EnhancedServicesSection';
+
 // Export types and constants
 export * from './types';
 export * from './constants';

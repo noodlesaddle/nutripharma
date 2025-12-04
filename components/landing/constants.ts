@@ -62,7 +62,7 @@ export const content: Record<'en' | 'mn', ContentStructure> = {
             },
         },
         about: {
-            title: "About Nutripharma",
+            title: "About Nomt-Nutripharma",
             description:
                 "With over 10 years of experience, Nomt-Nutripharma has been a trusted partner for pharmacies nationwide. We specialize in importing high-quality medicines and nutritional supplements from reputable international manufacturers and ensuring their timely distribution to our network of pharmacy partners.",
             features: [

@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "N+Nutripharm",
+  title: "N.Nutripharma",
   description: "Reliable Pharmaceutical Distribution",
 };
 

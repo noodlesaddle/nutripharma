@@ -20,6 +20,11 @@ export { GridBackground } from './GridBackground';
 export { EnhancedHeroSection } from './EnhancedHeroSection';
 export { EnhancedServicesSection } from './EnhancedServicesSection';
 
+// Export optimized components (better performance)
+export { OptimizedHeroSection } from './OptimizedHeroSection';
+export { OptimizedServicesSection } from './OptimizedServicesSection';
+export { OptimizedGridBackground } from './OptimizedGridBackground';
+
 // Export types and constants
 export * from './types';
 export * from './constants';

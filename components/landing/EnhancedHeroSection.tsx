@@ -30,7 +30,7 @@ export const EnhancedHeroSection: React.FC<EnhancedHeroSectionProps> = ({ title,
     return (
         <motion.section
             id="home"
-            className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48 overflow-hidden"
+            className="relative w-full py-12 md:py-24 lg:py-32 xl:py-48 lg:h-screen overflow-hidden"
             initial="initial"
             animate="animate"
             variants={staggerChildren}
@@ -43,7 +43,7 @@ export const EnhancedHeroSection: React.FC<EnhancedHeroSectionProps> = ({ title,
                     className="container mx-auto px-4 md:px-6 relative z-10"
                     variants={fadeInUp}
                 >
-                    <div className="flex flex-col items-center space-y-8 text-center">
+                    <div className="flex flex-col 2xl:pt-24 items-center space-y-8 text-center">
                         <motion.div className="space-y-4" variants={fadeInUp}>
                             {/* Animated title with gradient */}
                             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">

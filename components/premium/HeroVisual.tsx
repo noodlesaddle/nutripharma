@@ -22,9 +22,10 @@ interface VisualProps {
 }
 
 // ─── Option A: Hub + Orbiting Cards ─────────────────────────────────────────
-export const HubVisual: React.FC<VisualProps> = ({ mouseX, mouseY }) => {
+export const HubVisual: React.FC<VisualProps> = ({ mouseX, mouseY, language = "en" }) => {
     const px = mouseX * 0.007;
     const py = mouseY * 0.007;
+    const isMn = language === "mn";
 
     const satellites = [
         {

@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ShieldCheck, Thermometer, Building2 } from "lucide-react";
 

@@ -1,0 +1,21 @@
+{
+    "name": "Nomt-Nutripharma",
+    "short_name": "Nutripharma",
+    "description": "Mongolia's authorized pharmaceutical distributor. Official partner of Nutricost & Radiant Viewer.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#F8FAFC",
+    "theme_color": "#0D9488",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "any",
+            "type": "image/x-icon"
+        }
+    ],
+    "categories": [
+        "health",
+        "medical",
+        "business"
+    ]
+}
